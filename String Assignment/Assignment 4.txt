@@ -1,0 +1,33 @@
+Assignment 4
+
+1) How do you concentrate tow strings in the java?Give an example.
+Ans:- The + operator can be used between strings to combine them. This is called concatenation.
+	String firstName = "John";
+	String lastName = "Doe";
+	System.out.println(firstName + " " + lastName);
+
+2)How do you find length of string in java explain with an example?
+Ans:- public int length()
+      It returns the no of characters present in the string 
+      Example:-
+		String s="PWSkills";
+		System.out.printlln(s.length()):
+
+3)How do you compare two strings in java? Explain with an example.
+Ans:-Two strings in Java can be compared using the equals() method:
+String str1 = "Hello";
+String str2 = "Hello";
+if (str1.equals(str2)) {
+System.out.println("The strings are equal");
+} else {
+System.out.println("The strings are not equal");
+}
+
+5. Write a program to find the length of the string "refrigerator".
+Ans: class Ans{
+public static void main(String[] args){
+String a = "refrigerator";
+System.out.println(a.length());
+}
+}
+
