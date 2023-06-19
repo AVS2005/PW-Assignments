@@ -1,0 +1,155 @@
+Encapsulation Assignment
+
+1)What is encapsulation in java?Why is it called data hiding?
+Ans:-Binding of a data and corresponding methods into a single component is known as an encapsulation.
+Our internal data should not go outside directly by using private modifiers we can implement data hiding.
+
+2)What are the important features of the encapsulation?
+Ans:- a. We can achieve security.
+     b.Enhancement becomes easy.
+     c.Maintainabillity and modularisation becomes easy.
+     d.It provides flexibility to user to use the system very easily.
+
+
+3)What are the getters and setters methods in java?Explain with an example.
+Ans:- Setter methods are used to set the value to the instance variable of the class.
+      Getter methods are used to get the value from the instance variable of the class.
+      Example:-class Student
+
+{
+
+	 private String name;
+
+	 private Integer id;
+
+ 	private String address;
+
+
+	 //setters
+
+	 public void setName(String name){
+
+			 this.name = name;
+	 }
+	 public void setId(Integer id){
+			 this.id = id;
+	 }
+	 public void setAddress(String address){
+		 this.address = address;
+	 }
+	 //getters
+	 public Integer getId(){
+		 return id;
+	 }
+	 public String getName(){
+		 return name;
+	 }
+ public String getAddress(){
+		 return address;
+	 }
+}
+public class Demo 
+
+{
+
+	 public static void main(String[] args) 
+
+	 {
+
+		 Student std = new Student();
+
+		 std.setId(10);
+
+		 std.setName("sachin");
+
+		 std.setAddress("MI");
+
+
+	 	System.out.println("Id is      :: "+std.getId());
+
+	 	System.out.println("Name is    :: "+std.getName());
+
+		 System.out.println("Address is :: "+std.getAddress());
+
+	 }
+
+}
+
+4)What is the use of this keyword explain with an example.
+Ans:-'this’ is a reference variable that refers to the current object, or can be said “this” in Java is a keyword that refers to the current object instance. It can be used to call current class methods and fields, to pass an instance of the current class as a parameter, and to differentiate between the local and instance variables. 
+
+Example:- public class ThisExample {
+    int num = 10;
+ 
+    public ThisExample()
+    {
+        System.out.println("Inside constructor");
+    }
+ 
+    public ThisExample(int num)
+    {
+        // Invoking default constructor
+        this();
+ 
+        // Assigning the local variable num to the instance
+        // variable num
+        this.num = num;
+    }
+ 
+    void display()
+    {
+        // Invoking the method show() of the current class
+        this.show();
+ 
+        // Displaying the value of the instance variable num
+        System.out.println("num: " + this.num);
+    }
+ 
+    void show()
+    {
+        System.out.println("Inside show method");
+    }
+ 
+    public static void main(String[] args)
+    {
+        ThisExample obj = new ThisExample(100);
+        obj.display();
+    }
+}
+
+5)What is the advantage of the encapsulation?
+Ans:-a. We can achieve security.
+     b.Enhancement becomes easy.
+     c.Maintainabillity and modularisation becomes easy.
+     d.It provides flexibility to user to use the system very easily.
+
+
+6)How to achieve encapsulation in java?Give an example.
+Ans:-In Java, encapsulation is achieved by declaring the instance variables of a class as private, which means they can only be accessed within the class. To allow outside access to the instance variables, public methods called getters and setters are defined, which are used to retrieve and modify the values of the instance variables, respectively. By using getters and setters, the class can enforce its own data validation rules and ensure that its internal state remains consistent.
+
+Example:-
+		class Person {
+    private String name;
+    private int age;
+ 
+    public String getName() { return name; }
+ 
+    public void setName(String name) { this.name = name; }
+ 
+    public int getAge() { return age; }
+ 
+    public void setAge(int age) { this.age = age; }
+}
+ 
+public class Main {
+    public static void main(String[] args)
+    {
+        Person person = new Person();
+        person.setName("John");
+        person.setAge(30);
+ 
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
+    }
+}
+
