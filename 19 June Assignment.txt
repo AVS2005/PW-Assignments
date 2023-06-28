@@ -1,0 +1,71 @@
+19 June Assignment
+
+1. What is Inheritance in Java?
+Ans: The technique of creating a new class by using an existing class functionality is called inheritance in Java.
+In other words, inheritance is a process where a child class acquires all the properties and behaviours of the
+parent class.
+
+
+2. What is superclass and subclass??
+Ans: A class from where a subclass inherits features is called superclass. It is also called base class or parent
+class.
+A class that inherits all the members (fields, method, and nested classes) from another class is called a
+subclass. It is also called a derived class, child class, or extended class.
+
+
+3. How is Inheritance implemented/achieved in Java?
+Ans: Inheritance can be implemented or achieved by using two keywords:
+extends: extends is a keyword that is used for developing the inheritance between two classes and two
+interfaces.
+implements: implements keyword is used for developing the inheritance between a class and interface.
+
+
+4. What is polymorphism?
+Ans: Polymorphism in OOP is the ability of an entity to take several forms. In other words, it refers to the ability of
+an object (or a reference to an object) to take different forms of objects. It allows a common data-gathering
+message to be sent to each class. Polymorphism encourages what is called ‘extendibility’ which means an
+object or a class can have its uses extended.
+
+5. Differentiate between method overloading and overriding.
+Ans:- Overriding:- When the method signature (name and parameters) are the same in the superclass and the child class, it’s called overriding.
+		   Implements “runtime polymorphism”.
+		   The method call is determined at runtime based on the object type.
+		   Occurs between superclass and subclass.
+      Overloading:- When two or more methods in the same class have the same name but different parameters, it’s called overloading.
+		    Implements “compile time polymorphism”.
+		    The method call is determined at compile time.
+		    Occurs between the methods in the same class.
+
+
+6. What is an abstraction explained with an Example?
+Ans: Abstraction is nothing but the quality of dealing with ideas rather than events. It basically deals with hiding
+the internal details and showing the essential things to the user.
+Abstract class Sports { // abstract class sports
+Abstract void jump(); // abstract method
+}
+
+
+7. What is the difference between an abstract method and final method in Java?Explain with an example
+Ans: The abstract method is incomplete while the final method is regarded as complete. The only way to use
+an abstract method is by overriding it, but you cannot override a final method in Java.
+
+
+8. What is the final class in Java?
+Ans: A class declared with the final keyword is known as the final class. A final class can’t be inherited by
+subclasses. By using the final class, we can restrict the inheritance of the class. We can create a class as a final
+class only if it is complete in nature, which means it must not be an abstract class. In java, all the wrapper
+classes are final classes like String, Integer, etc.
+
+
+9. Differentiate between abstraction and encapsulation.
+Ans:- Abstraction	
+	It solves an issue at the design level.	
+	hides the unnecessary detail but shows the essential information.	
+	Lets focus on what an object does instead of how it does it.
+	Focuses on the external lookout.
+	
+      Encapsulation	
+	Encapsulation solves an issue at implementation level.  
+	It hides the code and data into a single entity or unit so that the data can be protected from the outside world.
+	Lets focus on how an object does something.	
+	Focuses on internal lookout.
