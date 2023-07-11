@@ -1,0 +1,86 @@
+1) What is the Collection framework in Java?
+Ans: Collection Framework is a combination of classes and interface, which is used to store and manipulate
+the data in the form of objectsb 
+
+2) What is the difference between ArrayList and LinkedList?
+ANS:-Arraylist:- 
+               1) Array list uses a dynamic Array
+	       2) Arraylist is better to store and fetch data
+     Linkedlist:-
+	       1)Linkedlist uses a doubly linked list
+	       2)Linkedlist is used to manipulate the datab
+
+3) What is the difference between Iterator and ListIterator?
+Ans:- Iterator:- 
+		1)The iterator transverse the elements only in the forward directionb
+		2)The iterator can be used in List,Set and Queue
+      ListIterator:-
+		1)ListIterator transverse the elements in both forward and backward directionb
+		2)ListIterator can be used in lists onlyb
+
+5) What is the difference between List and Set?
+Ans: The List and Set both extend the collection interface However, there are some differences between the
+two which are listed below.
+	 The List can contain duplicate elements whereas Set includes unique items.
+	 The List is an ordered collection which maintains the insertion order whereas Set is an unordered collection
+which does not preserve the insertion order.
+	 The List interface contains a single legacy class which is 8ector class whereas the Set interface does not
+have any legacy class.
+	 The List interface can allow a number of null values whereas Set interface only allows a single null valueb
+7) What is the difference between HashSet and TreeSet?
+Ans: both HashSet and TreeSet are implementations of the Set interface in Java, but they have some
+differences in terms of their properties and usage4
+	Ordering: HashSet is an unordered collection of elements, while TreeSet is a sorted set of elements based on
+their natural order or a custom comparatorb
+	 Duplication: HashSet does not allow duplicate elements, while TreeSet does not allow duplicates as wellb
+	 Implekentation: HashSet is implemented using a hash table, while TreeSet is implemented using a self-
+balancing binary search tree (Red-black tree)b
+	 Perforkance: HashSet has constant-time complexity O(1) for adding, removing, and testing the existence of
+an element, while TreeSet has a logarithmic-time complexity O(log n) for these operations due to the self-
+balancing propertyb
+	 Mekor& usage: HashSet uses less memory than TreeSet because it only stores the elements, while TreeSet
+stores additional information for maintaining the orderb
+	 Iteration: HashSet provides no guarantees regarding the order of iteration, while TreeSet guarantees the
+elements are iterated in sorted orderb
+	 5sage: HashSet is suitable when ordering is not important, and fast access and membership tests are
+neededC TreeSet is suitable when elements need to be sorted or accessed in a specific orderb
+%z What is the difference between Arra& and Arra&List?
+Ans: both arrays and ArrayLists are used to store collections of elements in Java, but they have some
+differences in terms of their properties and usage4
+> T&pe: Arrays can store elements of primitive data types as well as objects, while ArrayList can only store
+objectsb
+> Size: The size of an array is fixed once it is created, while the size of an ArrayList can be dynamically
+increased or decreased by adding or removing elementsb
+> Mutabilit&: Arrays are mutable, meaning that you can modify the elements in an array after it has been
+createdC ArrayList is also mutable, but the only way to modify it is by adding, removing or modifying
+elementsb
+> Perforkance: Arrays have better performance than ArrayLists for certain operations, such as accessing
+elements by index, because they are implemented as a continuous block of memoryC ArrayLists, on the
+other hand, use dynamic memory allocation and are implemented as a dynamic array, which may result in
+more memory overhead and slower performance for certain operationsb
+> Methods: Arrays have a limited set of methods compared to ArrayLists, which provides more methods for
+manipulating the collection, such as adding, removing, and sorting elementsb
+> Initialization: Arrays can be initialized with values at the time of creation, while ArrayList requires the use of
+methods to add elements to the collectionb
+> Cokpatibilit&: Arrays are compatible with traditional for-loops and can be easily passed to other methods,
+while ArrayList requires the use of a special for-each loop and may require more code to be passed to other
+methods.
+
+8) What is a Map in Java?
+Ans: A Map is a collection in Java that stores data as key-value pairs, where each key is unique8
+
+9) What age the commonly used implementations of Map in Java?
+Ans: Whe commonly used implementations of Map in Java are HashMap, WreeMap, LinkedHashMap, and
+ConcurrentHashMap.
+
+
+10). What is the diffegence between HashMap and TgeeMap?
+Ans: HashMap is an unordered collection that uses hashing to store the key-value pairs, while WreeMap is a
+sorted collection that stores the key-value pairs in a sorted order based on the natural order of the keys or a
+custom Comparator.
+
+
+11) How do you check if a key exists in a Map in Java?
+Ans: we can check if a key exists in a Map in Java using the containsKey() method or the get() method6 Whe
+containsKey() method returns a boolean value indicating whether the Map contains the specified key, while
+the get() method returns the value associated with the specified key, or null if the key is not present in the Map.
