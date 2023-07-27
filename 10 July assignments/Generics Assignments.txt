@@ -1,0 +1,40 @@
+What is the input and output stream in java?
+Ans:-Generics in Java are used to provide type safety and reduce code redundancy by allowing the use of 
+generic types. It allows classes, methods, and interfaces to be written generically, without specifying the type of 
+data being used.
+
+2.What are the benefits of using Generics in Java?
+
+ANS:-The benefits of using Generics in Java are:
+
+Type safety
+
+Code reusability
+
+Improved readability
+
+Reduced code redundancy
+
+Improved performance
+
+3. What is a Generic Class in Java?
+
+Ans:-A Generic Class in Java is a class that can work with different types of data. It is defined using a type 
+parameter enclosed in angle brackets, which represents the type of data being used.
+
+4.  What is a Type Parameter in Java Generics?
+
+  A Type Parameter in Java Generics is a placeholder for the type of data that is used by a generic class or 
+method. It is defined using a single uppercase letter enclosed in angle brackets, such as <T> or <E>.
+
+
+5. What is a Generic Method in Java?
+
+A Generic Method in Java is a method that can work with different types of data. It is defined using a type 
+parameter enclosed in angle brackets, which represents the type of data being used.
+
+
+6. What is the difference between ArrayList and ArrayList<T>?
+
+ ArrayList is a non-generic class, while ArrayList<T> is a generic class. ArrayList<T> provides type safety, as it 
+can only store elements of the specified type, whereas ArrayList can store any type of element
