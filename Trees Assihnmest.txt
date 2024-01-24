@@ -1,0 +1,420 @@
+Q1. Given the root of a binary tree, return the spiral level order traversal of its nodes' values. The
+solution should consider the binary tree nodes level by level in spiral order, i.e., all nodes present
+at level 1 should be processed first from left to right, followed by nodes of level 2 from right to left,
+followed by nodes of level 3 from left to right and so on... In other words, odd levels should be
+processed from left to right, and even levels should be processed from right to left.
+
+Ans :- 
+	class Node
+{
+    int key;
+    Node left = null, right = null;
+ 
+    Node(int data) {
+        this.key = data;
+    }
+}
+ 
+class Main
+{
+    // Function to print all nodes of a given level from left to right
+    public static boolean printLevelLeftToRight(Node root, int level)
+    {
+        if (root == null) {
+            return false;
+        }
+ 
+        if (level == 1)
+        {
+            System.out.print(root.key + " ");
+            return true;
+        }
+ 
+        // process left child before the right child
+        boolean left = printLevelLeftToRight(root.left, level - 1);
+        boolean right = printLevelLeftToRight(root.right, level - 1);
+ 
+        return left || right;
+    }
+ 
+    // Function to print all nodes of a given level from right to left
+    public static boolean printLevelRightToLeft(Node root, int level)
+    {
+        if (root == null) {
+            return false;
+        }
+ 
+        if (level == 1)
+        {
+            System.out.print(root.key + " ");
+            return true;
+        }
+ 
+        // process right child before the left child
+        boolean right = printLevelRightToLeft(root.right, level - 1);
+        boolean left = printLevelRightToLeft(root.left, level - 1);
+ 
+        return right || left;
+    }
+ 
+    // Function to print level order traversal of a given binary tree
+    public static void spiralOrderTraversal(Node root)
+    {
+        if (root == null) {
+            return;
+        }
+ 
+        // start from level 1 — till the height of the tree
+        int level = 1;
+ 
+        // run till either function returns false
+        while (printLevelLeftToRight(root, level++) &&
+                    printLevelRightToLeft(root, level++));
+    }
+ 
+    public static void main(String[] args)
+    {
+        Node root = new Node(15);
+        root.left = new Node(10);
+        root.right = new Node(20);
+        root.left.left = new Node(8);
+        root.left.right = new Node(12);
+        root.right.left = new Node(16);
+        root.right.right = new Node(25);
+ 
+        spiralOrderTraversal(root);
+    }
+}
+
+Q2. Given the root of a binary tree, check if it is a complete binary tree or not. A complete binary
+tree is a binary tree in which every level, except possibly the last, is filled, and all nodes are as far
+left as possible.
+
+Ans:- 
+	import java.util.ArrayDeque;
+import java.util.Queue;
+ 
+// A class to store a binary tree node
+class Node
+{
+    int key;
+    Node left = null, right = null;
+ 
+    Node(int key) {
+        this.key = key;
+    }
+}
+ 
+class Main
+{
+    // Function to check if a given binary tree is complete or not
+    public static boolean isComplete(Node root)
+    {
+        // return if the tree is empty
+        if (root == null) {
+            return true;
+        }
+ 
+        // create an empty queue and enqueue the root node
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+ 
+        // to store the current node
+        Node front;
+ 
+        // flag to mark the end of full nodes
+        boolean flag = false;
+ 
+        // loop till queue is empty
+        while (!queue.isEmpty())
+        {
+            // dequeue front node
+            front = queue.poll();
+ 
+            // if we have encountered a non-full node before and the current node
+            // is not a leaf, a tree cannot be complete
+            if (flag && (front.left != null || front.right != null)) {
+                return false;
+            }
+ 
+            // if the left child is empty and the right child exists,
+            // a tree cannot be complete
+            if (front.left == null && front.right != null) {
+                return false;
+            }
+ 
+            // if the left child exists, enqueue it
+            if (front.left != null) {
+                queue.add(front.left);
+            }
+            // if the current node is a non-full node, set the flag to true
+            else {
+                flag = true;
+            }
+ 
+            // if the right child exists, enqueue it
+            if (front.right != null) {
+                queue.add(front.right);
+            }
+            // if the current node is a non-full node, set the flag to true
+            else {
+                flag = true;
+            }
+        }
+ 
+        return true;
+    }
+ 
+    public static void main(String[] args)
+    {
+        /* Construct the following tree
+                  1
+               /     \
+              2       3
+             / \     / \
+            4   5   6   7
+        */
+ 
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+ 
+        if (isComplete(root)) {
+            System.out.println("Complete binary tree");
+        }
+        else {
+            System.out.println("Not a complete binary tree");
+        }
+    }
+}
+
+Q3. Given the root of a binary tree, return the reverse level order traversal of its nodes' values. The
+solution should consider the binary tree nodes level by level in bottom-up order from left to right,
+i.e., process all nodes of the last level first, followed by all nodes of the second last level, and so on.
+
+Ans:- 
+	import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Queue;
+ 
+// A class to store a binary tree node
+class Node
+{
+    int key;
+    Node left = null, right = null;
+ 
+    Node(int key) {
+        this.key = key;
+    }
+}
+ 
+class Main
+{
+    // Function to print reverse level order traversal of a given binary tree
+    public static void reverseLevelOrderTraversal(Node root)
+    {
+        if (root == null) {
+            return;
+        }
+ 
+        // create an empty queue and enqueue the root node
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+ 
+        // create a stack to reverse level order nodes
+        Deque<Integer> stack = new ArrayDeque<>();
+ 
+        // to store the current node
+        Node curr;
+ 
+        // loop till queue is empty
+        while (!queue.isEmpty())
+        {
+            // process each node in the queue and enqueue their children
+            curr = queue.poll();
+ 
+            // push the current node into the stack
+            stack.push(curr.key);
+ 
+            // it is important to process the right node before the left node
+            if (curr.right != null) {
+                queue.add(curr.right);
+            }
+ 
+            if (curr.left != null) {
+                queue.add(curr.left);
+            }
+        }
+ 
+        // pop all nodes from the stack and print them
+        while (!stack.isEmpty()) {
+            System.out.print(stack.poll() + " ");
+        }
+    }
+ 
+    public static void main(String[] args)
+    {
+        Node root = new Node(15);
+        root.left = new Node(10);
+        root.right = new Node(20);
+        root.left.left = new Node(8);
+        root.left.right = new Node(12);
+        root.right.left = new Node(16);
+        root.right.right = new Node(25);
+ 
+        reverseLevelOrderTraversal(root);
+    }
+}
+
+Q4. Given the root of a binary tree, return the left view of its nodes' values. Assume the left and
+right child of a node makes a 45–degree angle with the parent.
+
+Ans:-
+	import java.util.HashMap;
+import java.util.Map;
+ 
+// A class to store a binary tree node
+class Node
+{
+    int key;
+    Node left = null, right = null;
+ 
+    Node(int key) {
+        this.key = key;
+    }
+}
+ 
+class Main
+{
+    // Recursive function to traverse the nodes in a preorder fashion
+    public static void leftView(Node root, int level, Map<Integer, Integer> map)
+    {
+        // base case
+        if (root == null) {
+            return;
+        }
+ 
+        // if the level is visited for the first time, insert the current node
+        // and level information into the map
+        map.putIfAbsent(level, root.key);
+ 
+        leftView(root.left, level + 1, map);
+        leftView(root.right, level + 1, map);
+    }
+ 
+    // Function to print the left view of a given binary tree
+    public static void leftView(Node root)
+    {
+        // create an empty HashMap to store the first node for each level
+        Map<Integer, Integer> map = new HashMap<>();
+ 
+        // traverse the tree and fill the map
+        leftView(root, 1, map);
+ 
+        // iterate through the HashMap in sorted order of its keys
+        // and print the left view
+        for (int i = 1; i <= map.size(); i++) {
+            System.out.print(map.get(i) + " ");
+        }
+    }
+ 
+    public static void main(String[] args)
+    {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.right = new Node(4);
+        root.right.left = new Node(5);
+        root.right.right = new Node(6);
+        root.right.left.left = new Node(7);
+        root.right.left.right = new Node(8);
+ 
+        leftView(root);
+    }
+}
+
+Q5. Given the root of a binary tree, convert the binary tree into its mirror and print it’s pre order
+
+Ans:-
+	// A class to store a binary tree node
+class Node
+{
+    int data;
+    Node left = null, right = null;
+ 
+    Node(int data) {
+        this.data = data;
+    }
+}
+ 
+class Main
+{
+    // Function to perform preorder traversal on a given binary tree
+    public static void preorder(Node root)
+    {
+        if (root == null) {
+            return;
+        }
+ 
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+ 
+    // Utility function to swap left subtree with right subtree
+    public static void swap(Node root)
+    {
+        if (root == null) {
+            return;
+        }
+ 
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    }
+ 
+    // Function to convert a given binary tree into its mirror
+    public static void convertToMirror(Node root)
+    {
+        // base case: if the tree is empty
+        if (root == null) {
+            return;
+        }
+ 
+        // convert left subtree
+        convertToMirror(root.left);
+ 
+        // convert right subtree
+        convertToMirror(root.right);
+ 
+        // swap left subtree with right subtree
+        swap(root);
+    }
+ 
+    public static void main(String[] args)
+    {
+        /* Construct the following tree
+                  1
+                /   \
+               /     \
+              2       3
+             / \     / \
+            4   5   6   7
+        */
+ 
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+ 
+        convertToMirror(root);
+        preorder(root);
+    }
+}
